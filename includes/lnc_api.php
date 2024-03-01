@@ -20,12 +20,14 @@ class LightningCheckoutAPI {
     }
 
     public function generateInvoice($amount, $memo) {
+        $fiat_currency = "EUR";
         $data = array(
             "out" => false,
             "amount" => $amount,
             "memo" => $memo,
-            "unit" => "eur",
-            "webhook" => $this->webhook_url
+            "unit" => $fiat_currency,
+            "webhook" => $this->webhook_url,
+            "extra": {"lnc_product": "BTCWEBSHOP", "lnc_fiat_amount": $amount, "lnc_fiat_currency": $fiat_currency}
         );
         $headers = array(
             'accept' => 'application/json',
