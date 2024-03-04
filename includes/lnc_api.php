@@ -27,7 +27,11 @@ class LightningCheckoutAPI {
             "memo" => $memo,
             "unit" => $fiat_currency,
             "webhook" => $this->webhook_url,
-            "extra": {"lnc_product": "BTCWEBSHOP", "lnc_fiat_amount": $amount, "lnc_fiat_currency": $fiat_currency}
+            "extra" => array(
+                "lnc_product" => "BTCWEBSHOP",
+                "lnc_fiat_amount" => $amount
+                "lnc_fiat_currency" => $fiat_currency
+            )
         );
         $headers = array(
             'accept' => 'application/json',
